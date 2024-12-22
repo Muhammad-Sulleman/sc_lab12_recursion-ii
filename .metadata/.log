@@ -1,0 +1,422 @@
+!SESSION 2024-12-22 19:41:49.417 -----------------------------------------------
+eclipse.buildId=4.33.0.20240905-0613
+java.version=21.0.4
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY ch.qos.logback.classic 1 0 2024-12-22 19:41:59.981
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY org.eclipse.m2e.wtp.overlay 4 0 2024-12-22 19:42:01.448
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.m2e.wtp.overlay [721]
+  Unresolved requirement: Require-Bundle: org.apache.ant
+    -> Bundle-SymbolicName: org.apache.ant; bundle-version="1.9.4.v201504302020"
+       org.apache.ant [67]
+         No resolution report for the bundle.  Unresolved requirement: Require-Bundle: org.slf4j.api; bundle-version="1.6.0"
+    -> Bundle-SymbolicName: org.slf4j.api; bundle-version="1.7.2.v20121108-1250"
+       org.slf4j.api [1149]
+         No resolution report for the bundle.  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.m2e.wtp.overlay [osgi.identity; type="osgi.bundle"; version:Version="1.2.0.20150602-1740"; osgi.identity="org.eclipse.m2e.wtp.overlay"; singleton:="true"] because it is exposed to package 'org.slf4j' from resources org.slf4j.api [osgi.identity; type="osgi.bundle"; version:Version="1.7.2.v20121108-1250"; osgi.identity="org.slf4j.api"] and slf4j.api [osgi.identity; type="osgi.bundle"; version:Version="2.0.16"; osgi.identity="slf4j.api"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.m2e.wtp.overlay [osgi.identity; type="osgi.bundle"; version:Version="1.2.0.20150602-1740"; osgi.identity="org.eclipse.m2e.wtp.overlay"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.slf4j.api)(bundle-version>=1.6.0))
+     |
+    provide: osgi.wiring.bundle: org.slf4j.api
+  org.slf4j.api [osgi.identity; type="osgi.bundle"; version:Version="1.7.2.v20121108-1250"; osgi.identity="org.slf4j.api"]
+
+Chain 2:
+  org.eclipse.m2e.wtp.overlay [osgi.identity; type="osgi.bundle"; version:Version="1.2.0.20150602-1740"; osgi.identity="org.eclipse.m2e.wtp.overlay"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.slf4j.api)(bundle-version>=1.6.0))
+     |
+    provide: [osgi.identity; type="osgi.bundle"; version:Version="1.7.2.v20121108-1250"; osgi.identity="org.slf4j.api"] osgi.wiring.bundle; {bundle-version=1.7.2.v20121108-1250, osgi.wiring.bundle=org.slf4j.api}
+  org.slf4j.api [osgi.identity; type="osgi.bundle"; version:Version="1.7.2.v20121108-1250"; osgi.identity="org.slf4j.api"]
+    require: (&(osgi.wiring.bundle=ch.qos.logback.classic)(&(bundle-version>=1.0.7)(!(bundle-version>=1.0.8))))
+     |
+    provide: osgi.wiring.bundle; bundle-version:Version="1.0.7.v20121108-1250"; osgi.wiring.bundle="ch.qos.logback.classic"
+  ch.qos.logback.classic [osgi.identity; type="osgi.bundle"; version:Version="1.5.7"; osgi.identity="ch.qos.logback.classic"]
+    import: (&(osgi.wiring.package=org.slf4j)(&(version>=2.0.0)(!(version>=3.0.0))))
+     |
+    export: osgi.wiring.package: org.slf4j
+  slf4j.api [osgi.identity; type="osgi.bundle"; version:Version="2.0.16"; osgi.identity="slf4j.api"]
+	at org.eclipse.osgi.container.Module.start(Module.java:493)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2074)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:143)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2065)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2005)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1968)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1884)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.eclipse.m2e.wtp.overlay.ui 4 0 2024-12-22 19:42:02.119
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.m2e.wtp.overlay.ui [722]
+  Unresolved requirement: Require-Bundle: org.eclipse.m2e.wtp.overlay
+    -> Bundle-SymbolicName: org.eclipse.m2e.wtp.overlay; bundle-version="1.2.0.20150602-1740"; singleton:="true"
+       org.eclipse.m2e.wtp.overlay [721]
+         Unresolved requirement: Require-Bundle: org.apache.ant
+           -> Bundle-SymbolicName: org.apache.ant; bundle-version="1.9.4.v201504302020"
+              org.apache.ant [67]
+                No resolution report for the bundle.         Unresolved requirement: Require-Bundle: org.slf4j.api; bundle-version="1.6.0"
+           -> Bundle-SymbolicName: org.slf4j.api; bundle-version="1.7.2.v20121108-1250"
+              org.slf4j.api [1149]
+                No resolution report for the bundle.  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.m2e.wtp.overlay [osgi.identity; type="osgi.bundle"; version:Version="1.2.0.20150602-1740"; osgi.identity="org.eclipse.m2e.wtp.overlay"; singleton:="true"] because it is exposed to package 'org.slf4j' from resources org.slf4j.api [osgi.identity; type="osgi.bundle"; version:Version="1.7.2.v20121108-1250"; osgi.identity="org.slf4j.api"] and slf4j.api [osgi.identity; type="osgi.bundle"; version:Version="2.0.16"; osgi.identity="slf4j.api"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.m2e.wtp.overlay [osgi.identity; type="osgi.bundle"; version:Version="1.2.0.20150602-1740"; osgi.identity="org.eclipse.m2e.wtp.overlay"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.slf4j.api)(bundle-version>=1.6.0))
+     |
+    provide: osgi.wiring.bundle: org.slf4j.api
+  org.slf4j.api [osgi.identity; type="osgi.bundle"; version:Version="1.7.2.v20121108-1250"; osgi.identity="org.slf4j.api"]
+
+Chain 2:
+  org.eclipse.m2e.wtp.overlay [osgi.identity; type="osgi.bundle"; version:Version="1.2.0.20150602-1740"; osgi.identity="org.eclipse.m2e.wtp.overlay"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.slf4j.api)(bundle-version>=1.6.0))
+     |
+    provide: [osgi.identity; type="osgi.bundle"; version:Version="1.7.2.v20121108-1250"; osgi.identity="org.slf4j.api"] osgi.wiring.bundle; {bundle-version=1.7.2.v20121108-1250, osgi.wiring.bundle=org.slf4j.api}
+  org.slf4j.api [osgi.identity; type="osgi.bundle"; version:Version="1.7.2.v20121108-1250"; osgi.identity="org.slf4j.api"]
+    require: (&(osgi.wiring.bundle=ch.qos.logback.classic)(&(bundle-version>=1.0.7)(!(bundle-version>=1.0.8))))
+     |
+    provide: osgi.wiring.bundle; bundle-version:Version="1.0.7.v20121108-1250"; osgi.wiring.bundle="ch.qos.logback.classic"
+  ch.qos.logback.classic [osgi.identity; type="osgi.bundle"; version:Version="1.5.7"; osgi.identity="ch.qos.logback.classic"]
+    import: (&(osgi.wiring.package=org.slf4j)(&(version>=2.0.0)(!(version>=3.0.0))))
+     |
+    export: osgi.wiring.package: org.slf4j
+  slf4j.api [osgi.identity; type="osgi.bundle"; version:Version="2.0.16"; osgi.identity="slf4j.api"]
+	at org.eclipse.osgi.container.Module.start(Module.java:493)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2074)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:143)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2065)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2005)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1968)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1884)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.eclipse.m2e.logback.configuration 4 0 2024-12-22 19:42:03.947
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.m2e.logback.configuration [707]
+  Unresolved requirement: Require-Bundle: ch.qos.logback.core; bundle-version="0.9.24"
+    -> Bundle-SymbolicName: ch.qos.logback.core; bundle-version="1.0.7.v20121108-1250"
+       ch.qos.logback.core [10]
+         Unresolved requirement: Import-Package: org.codehaus.commons.compiler; resolution:="optional"
+         Unresolved requirement: Import-Package: org.codehaus.janino; resolution:="optional"
+         Unresolved requirement: Import-Package: org.fusesource.jansi; version="1.8.0"; resolution:="optional"
+  Unresolved requirement: Require-Bundle: ch.qos.logback.classic; bundle-version="0.9.24"
+    -> Bundle-SymbolicName: ch.qos.logback.classic; bundle-version="1.0.7.v20121108-1250"
+       ch.qos.logback.classic [8]
+         Unresolved requirement: Import-Package: groovy.lang; version="2.0.0"; resolution:="optional"
+         Unresolved requirement: Import-Package: javax.jms; resolution:="optional"
+         Unresolved requirement: Import-Package: org.codehaus.groovy.control; version="2.0.0"; resolution:="optional"
+         Unresolved requirement: Import-Package: org.codehaus.groovy.reflection; version="2.0.0"; resolution:="optional"
+         Unresolved requirement: Import-Package: org.codehaus.groovy.runtime; version="2.0.0"; resolution:="optional"
+         Unresolved requirement: Import-Package: org.codehaus.groovy.runtime.callsite; version="2.0.0"; resolution:="optional"
+         Unresolved requirement: Import-Package: org.codehaus.groovy.runtime.typehandling; version="2.0.0"; resolution:="optional"
+         Unresolved requirement: Import-Package: ch.qos.logback.core.pattern.color; version="1.0.7"
+           -> Export-Package: ch.qos.logback.core.pattern.color; bundle-symbolic-name="ch.qos.logback.core"; bundle-version="1.0.7.v20121108-1250"; version="1.0.7"; uses:="ch.qos.logback.core.pattern"
+         Unresolved requirement: Import-Package: ch.qos.logback.core.joran; version="1.0.7"
+           -> Export-Package: ch.qos.logback.core.joran; bundle-symbolic-name="ch.qos.logback.core"; bundle-version="1.0.7.v20121108-1250"; version="1.0.7"; uses:="ch.qos.logback.core.status,ch.qos.logback.core.spi,ch.qos.logback.core.joran.event,ch.qos.logback.core,ch.qos.logback.core.joran.util,ch.qos.logback.core.joran.spi,org.xml.sax,ch.qos.logback.core.joran.action"
+         Unresolved requirement: Import-Package: ch.qos.logback.core.filter; version="1.0.7"
+           -> Export-Package: ch.qos.logback.core.filter; bundle-symbolic-name="ch.qos.logback.core"; bundle-version="1.0.7.v20121108-1250"; version="1.0.7"; uses:="ch.qos.logback.core.spi,ch.qos.logback.core.boolex"
+         Unresolved requirement: Import-Package: ch.qos.logback.core.joran.spi; version="1.0.7"
+           -> Export-Package: ch.qos.logback.core.joran.spi; bundle-symbolic-name="ch.qos.logback.core"; bundle-version="1.0.7.v20121108-1250"; version="1.0.7"; uses:="ch.qos.logback.core.spi,org.xml.sax,ch.qos.logback.core.joran.event,ch.qos.logback.core,ch.qos.logback.core.util,ch.qos.logback.core.joran.action,ch.qos.logback.core.status"
+         Unresolved requirement: Import-Package: ch.qos.logback.core.joran.conditional; version="1.0.7"
+           -> Export-Package: ch.qos.logback.core.joran.conditional; bundle-symbolic-name="ch.qos.logback.core"; bundle-version="1.0.7.v20121108-1250"; version="1.0.7"; uses:="ch.qos.logback.core.joran.event,ch.qos.logback.core.spi,ch.qos.logback.core,ch.qos.logback.core.joran.spi,ch.qos.logback.core.joran.action,ch.qos.logback.core.util,org.xml.sax,org.codehaus.janino,org.codehaus.commons.compiler"
+         Unresolved requirement: Import-Package: ch.qos.logback.core.status; version="1.0.7"
+           -> Export-Package: ch.qos.logback.core.status; bundle-symbolic-name="ch.qos.logback.core"; bundle-version="1.0.7.v20121108-1250"; version="1.0.7"; uses:="ch.qos.logback.core.spi,ch.qos.logback.core,ch.qos.logback.core.util,ch.qos.logback.core.helpers,javax.servlet,javax.servlet.http"
+         Unresolved requirement: Import-Package: ch.qos.logback.core.spi; version="1.0.7"
+           -> Export-Package: ch.qos.logback.core.spi; bundle-symbolic-name="ch.qos.logback.core"; bundle-version="1.0.7.v20121108-1250"; version="1.0.7"; uses:="ch.qos.logback.core,ch.qos.logback.core.status,ch.qos.logback.core.helpers,ch.qos.logback.core.filter"
+         Unresolved requirement: Import-Package: ch.qos.logback.core.html; version="1.0.7"
+           -> Export-Package: ch.qos.logback.core.html; bundle-symbolic-name="ch.qos.logback.core"; bundle-version="1.0.7.v20121108-1250"; version="1.0.7"; uses:="ch.qos.logback.core.spi,ch.qos.logback.core.pattern,ch.qos.logback.core,ch.qos.logback.core.pattern.parser"
+         Unresolved requirement: Import-Package: ch.qos.logback.core.boolex; version="1.0.7"
+           -> Export-Package: ch.qos.logback.core.boolex; bundle-symbolic-name="ch.qos.logback.core"; bundle-version="1.0.7.v20121108-1250"; version="1.0.7"; uses:="ch.qos.logback.core.spi,org.codehaus.janino,ch.qos.logback.core"
+         Unresolved requirement: Import-Package: org.slf4j.spi; version="1.7.0"
+           -> Export-Package: org.slf4j.spi; bundle-symbolic-name="org.slf4j.api"; bundle-version="1.7.2.v20121108-1250"; version="1.7.2"
+              org.slf4j.api [1149]
+                No resolution report for the bundle.         Unresolved requirement: Import-Package: ch.qos.logback.core.rolling.helper; version="1.0.7"
+           -> Export-Package: ch.qos.logback.core.rolling.helper; bundle-symbolic-name="ch.qos.logback.core"; bundle-version="1.0.7.v20121108-1250"; version="1.0.7"; uses:="ch.qos.logback.core.spi,ch.qos.logback.core.status,ch.qos.logback.core.util,ch.qos.logback.core.pattern,ch.qos.logback.core.pattern.util,ch.qos.logback.core,ch.qos.logback.core.pattern.parser,ch.qos.logback.core.rolling"
+         Unresolved requirement: Import-Package: ch.qos.logback.core.rolling; version="1.0.7"
+           -> Export-Package: ch.qos.logback.core.rolling; bundle-symbolic-name="ch.qos.logback.core"; bundle-version="1.0.7.v20121108-1250"; version="1.0.7"; uses:="ch.qos.logback.core,ch.qos.logback.core.rolling.helper,ch.qos.logback.core.spi,ch.qos.logback.core.joran.spi,ch.qos.logback.core.util"
+         Unresolved requirement: Import-Package: ch.qos.logback.core.helpers; version="1.0.7"
+           -> Export-Package: ch.qos.logback.core.helpers; bundle-symbolic-name="ch.qos.logback.core"; bundle-version="1.0.7.v20121108-1250"; version="1.0.7"; uses:="ch.qos.logback.core"
+         Unresolved requirement: Import-Package: ch.qos.logback.core.joran.util; version="1.0.7"
+           -> Export-Package: ch.qos.logback.core.joran.util; bundle-symbolic-name="ch.qos.logback.core"; bundle-version="1.0.7.v20121108-1250"; version="1.0.7"; uses:="ch.qos.logback.core.status,ch.qos.logback.core,ch.qos.logback.core.joran.spi,ch.qos.logback.core.util,ch.qos.logback.core.spi"
+         Unresolved requirement: Import-Package: org.slf4j; version="1.7.0"
+           -> Export-Package: org.slf4j; bundle-symbolic-name="org.slf4j.api"; bundle-version="1.7.2.v20121108-1250"; version="1.7.2"
+         Unresolved requirement: Import-Package: ch.qos.logback.core.net; version="1.0.7"
+           -> Export-Package: ch.qos.logback.core.net; bundle-symbolic-name="ch.qos.logback.core"; bundle-version="1.0.7.v20121108-1250"; version="1.0.7"; uses:="javax.naming,ch.qos.logback.core,javax.mail,ch.qos.logback.core.helpers,ch.qos.logback.core.spi,ch.qos.logback.core.sift,javax.mail.internet,ch.qos.logback.core.pattern,ch.qos.logback.core.boolex,ch.qos.logback.core.util"
+         Unresolved requirement: Import-Package: ch.qos.logback.core.joran.action; version="1.0.7"
+           -> Export-Package: ch.qos.logback.core.joran.action; bundle-symbolic-name="ch.qos.logback.core"; bundle-version="1.0.7.v20121108-1250"; version="1.0.7"; uses:="ch.qos.logback.core.spi,ch.qos.logback.core.boolex,ch.qos.logback.core,ch.qos.logback.core.joran.spi,ch.qos.logback.core.util,org.xml.sax,ch.qos.logback.core.joran.util,ch.qos.logback.core.joran.event,ch.qos.logback.core.pattern.util,ch.qos.logback.core.status"
+         Unresolved requirement: Import-Package: ch.qos.logback.core.pattern.parser; version="1.0.7"
+           -> Export-Package: ch.qos.logback.core.pattern.parser; bundle-symbolic-name="ch.qos.logback.core"; bundle-version="1.0.7.v20121108-1250"; version="1.0.7"; uses:="ch.qos.logback.core.status,ch.qos.logback.core.spi,ch.qos.logback.core.pattern,ch.qos.logback.core,ch.qos.logback.core.util,ch.qos.logback.core.pattern.util"
+         Unresolved requirement: Import-Package: ch.qos.logback.core.joran.event; version="1.0.7"
+           -> Export-Package: ch.qos.logback.core.joran.event; bundle-symbolic-name="ch.qos.logback.core"; bundle-version="1.0.7.v20121108-1250"; version="1.0.7"; uses:="org.xml.sax,org.xml.sax.helpers,ch.qos.logback.core.status,ch.qos.logback.core.spi,javax.xml.parsers,ch.qos.logback.core,ch.qos.logback.core.joran.spi"
+         Unresolved requirement: Import-Package: ch.qos.logback.core.sift; version="1.0.7"
+           -> Export-Package: ch.qos.logback.core.sift; bundle-symbolic-name="ch.qos.logback.core"; bundle-version="1.0.7.v20121108-1250"; version="1.0.7"; uses:="ch.qos.logback.core.joran.event,ch.qos.logback.core,ch.qos.logback.core.joran.spi,ch.qos.logback.core.spi,ch.qos.logback.core.helpers,ch.qos.logback.core.joran,ch.qos.logback.core.joran.action"
+         Unresolved requirement: Import-Package: ch.qos.logback.core; version="1.0.7"
+           -> Export-Package: ch.qos.logback.core; bundle-symbolic-name="ch.qos.logback.core"; bundle-version="1.0.7.v20121108-1250"; version="1.0.7"; uses:="ch.qos.logback.core.spi,ch.qos.logback.core.status,ch.qos.logback.core.filter,ch.qos.logback.core.helpers,ch.qos.logback.core.joran.spi,ch.qos.logback.core.util,ch.qos.logback.core.recovery,ch.qos.logback.core.encoder"
+         Unresolved requirement: Import-Package: ch.qos.logback.core.util; version="1.0.7"
+           -> Export-Package: ch.qos.logback.core.util; bundle-symbolic-name="ch.qos.logback.core"; bundle-version="1.0.7.v20121108-1250"; version="1.0.7"; uses:="ch.qos.logback.core.spi,ch.qos.logback.core,ch.qos.logback.core.subst,ch.qos.logback.core.status,ch.qos.logback.core.helpers"
+         Unresolved requirement: Import-Package: ch.qos.logback.core.pattern; version="1.0.7"
+           -> Export-Package: ch.qos.logback.core.pattern; bundle-symbolic-name="ch.qos.logback.core"; bundle-version="1.0.7.v20121108-1250"; version="1.0.7"; uses:="ch.qos.logback.core.spi,ch.qos.logback.core,ch.qos.logback.core.status,ch.qos.logback.core.pattern.parser,ch.qos.logback.core.encoder"
+         Unresolved requirement: Import-Package: ch.qos.logback.core.read; version="1.0.7"
+           -> Export-Package: ch.qos.logback.core.read; bundle-symbolic-name="ch.qos.logback.core"; bundle-version="1.0.7.v20121108-1250"; version="1.0.7"; uses:="ch.qos.logback.core.helpers,ch.qos.logback.core"
+         Unresolved requirement: Import-Package: ch.qos.logback.core.encoder; version="1.0.7"
+           -> Export-Package: ch.qos.logback.core.encoder; bundle-symbolic-name="ch.qos.logback.core"; bundle-version="1.0.7.v20121108-1250"; version="1.0.7"; uses:="ch.qos.logback.core,ch.qos.logback.core.spi"
+         Unresolved requirement: Import-Package: ch.qos.logback.core.db; version="1.0.7"
+           -> Export-Package: ch.qos.logback.core.db; bundle-symbolic-name="ch.qos.logback.core"; bundle-version="1.0.7.v20121108-1250"; version="1.0.7"; uses:="javax.naming,javax.sql,ch.qos.logback.core,ch.qos.logback.core.joran.spi,ch.qos.logback.core.joran.util,ch.qos.logback.core.joran.action,ch.qos.logback.core.util,org.xml.sax,ch.qos.logback.core.spi,ch.qos.logback.core.db.dialect"
+         Unresolved requirement: Import-Package: org.slf4j.helpers; version="1.7.0"
+           -> Export-Package: org.slf4j.helpers; bundle-symbolic-name="org.slf4j.api"; bundle-version="1.7.2.v20121108-1250"; version="1.7.2"
+  Unresolved requirement: Require-Bundle: org.slf4j.api; bundle-version="1.6.2"
+    -> Bundle-SymbolicName: org.slf4j.api; bundle-version="1.7.2.v20121108-1250"
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.m2e.logback.configuration [osgi.identity; type="osgi.bundle"; version:Version="1.6.0.20150526-2032"; osgi.identity="org.eclipse.m2e.logback.configuration"; singleton:="true"] because it is exposed to package 'org.slf4j' from resources org.slf4j.api [osgi.identity; type="osgi.bundle"; version:Version="1.7.2.v20121108-1250"; osgi.identity="org.slf4j.api"] and slf4j.api [osgi.identity; type="osgi.bundle"; version:Version="2.0.16"; osgi.identity="slf4j.api"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.m2e.logback.configuration [osgi.identity; type="osgi.bundle"; version:Version="1.6.0.20150526-2032"; osgi.identity="org.eclipse.m2e.logback.configuration"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.slf4j.api)(bundle-version>=1.6.2))
+     |
+    provide: osgi.wiring.bundle: org.slf4j.api
+  org.slf4j.api [osgi.identity; type="osgi.bundle"; version:Version="1.7.2.v20121108-1250"; osgi.identity="org.slf4j.api"]
+
+Chain 2:
+  org.eclipse.m2e.logback.configuration [osgi.identity; type="osgi.bundle"; version:Version="1.6.0.20150526-2032"; osgi.identity="org.eclipse.m2e.logback.configuration"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=ch.qos.logback.classic)(bundle-version>=0.9.24))
+     |
+    provide: osgi.wiring.bundle; bundle-version:Version="1.5.7"; osgi.wiring.bundle="ch.qos.logback.classic"
+  ch.qos.logback.classic [osgi.identity; type="osgi.bundle"; version:Version="1.5.7"; osgi.identity="ch.qos.logback.classic"]
+    import: (&(osgi.wiring.package=org.slf4j)(&(version>=2.0.0)(!(version>=3.0.0))))
+     |
+    export: osgi.wiring.package: org.slf4j
+  slf4j.api [osgi.identity; type="osgi.bundle"; version:Version="2.0.16"; osgi.identity="slf4j.api"]
+	at org.eclipse.osgi.container.Module.start(Module.java:493)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2074)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:143)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2065)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2007)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1968)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1884)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.eclipse.equinox.app 0 0 2024-12-22 19:42:04.057
+!MESSAGE Product org.eclipse.epp.package.java.product could not be found.
+
+!ENTRY ch.qos.logback.classic 1 0 2024-12-22 19:42:47.718
+!MESSAGE Logback config file: C:\academics\5th sem\Sc-lab12\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.6.1.20240411-1122.xml
+
+!ENTRY org.eclipse.jface 4 0 2024-12-22 19:42:50.862
+!MESSAGE /icons/full/eview16/console_view.gif
+!STACK 0
+java.io.FileNotFoundException: /icons/full/eview16/console_view.gif
+	at org.eclipse.osgi.storage.url.bundleentry.Handler.findBundleEntry(Handler.java:55)
+	at org.eclipse.osgi.storage.url.BundleResourceHandler.openConnection(BundleResourceHandler.java:186)
+	at java.base/java.net.URL.openConnection(URL.java:1258)
+	at org.eclipse.core.internal.boot.PlatformURLConnection.connect(PlatformURLConnection.java:114)
+	at org.eclipse.core.internal.boot.PlatformURLConnection.getURLAsLocal(PlatformURLConnection.java:217)
+	at org.eclipse.core.internal.runtime.PlatformURLConverter.toFileURL(PlatformURLConverter.java:37)
+	at org.eclipse.core.runtime.FileLocator.toFileURL(FileLocator.java:277)
+	at org.eclipse.jface.resource.URLImageDescriptor.getFilePath(URLImageDescriptor.java:271)
+	at org.eclipse.jface.resource.URLImageDescriptor$URLImageFileNameProvider.getImagePath(URLImageDescriptor.java:64)
+	at org.eclipse.swt.internal.DPIUtil.lambda$3(DPIUtil.java:563)
+	at org.eclipse.swt.internal.DPIUtil.getElementAtZoom(DPIUtil.java:572)
+	at org.eclipse.swt.internal.DPIUtil.validateAndGetImagePathAtZoom(DPIUtil.java:563)
+	at org.eclipse.swt.graphics.Image.<init>(Image.java:576)
+	at org.eclipse.jface.resource.URLImageDescriptor.createImage(URLImageDescriptor.java:306)
+	at org.eclipse.jface.resource.ImageDescriptor.createResource(ImageDescriptor.java:229)
+	at org.eclipse.jface.resource.DeviceResourceManager.allocate(DeviceResourceManager.java:56)
+	at org.eclipse.jface.resource.AbstractResourceManager.create(AbstractResourceManager.java:92)
+	at org.eclipse.jface.resource.LazyResourceManager.create(LazyResourceManager.java:95)
+	at org.eclipse.jface.resource.LocalResourceManager.allocate(LocalResourceManager.java:71)
+	at org.eclipse.jface.resource.AbstractResourceManager.create(AbstractResourceManager.java:92)
+	at org.eclipse.e4.ui.workbench.renderers.swt.AbstractContributionItem.getImage(AbstractContributionItem.java:145)
+	at org.eclipse.e4.ui.workbench.renderers.swt.AbstractContributionItem.updateIcons(AbstractContributionItem.java:171)
+	at org.eclipse.e4.ui.workbench.renderers.swt.AbstractContributionItem.update(AbstractContributionItem.java:121)
+	at org.eclipse.e4.ui.workbench.renderers.swt.AbstractContributionItem.fill(AbstractContributionItem.java:311)
+	at org.eclipse.jface.action.ToolBarManager.update(ToolBarManager.java:358)
+	at org.eclipse.e4.ui.workbench.renderers.swt.ToolBarManagerRenderer.updateWidget(ToolBarManagerRenderer.java:633)
+	at org.eclipse.e4.ui.workbench.renderers.swt.ToolBarManagerRenderer.subscribeUIElementTopicVisible(ToolBarManagerRenderer.java:219)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:56)
+	at org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:183)
+	at org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:133)
+	at org.eclipse.swt.widgets.Display.syncExec(Display.java:4855)
+	at org.eclipse.e4.ui.workbench.swt.DisplayUISynchronize.syncExec(DisplayUISynchronize.java:34)
+	at org.eclipse.e4.ui.internal.di.UIEventObjectSupplier$UIEventHandler.handleEvent(UIEventObjectSupplier.java:64)
+	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:206)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:201)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.dispatchEvent(EventAdminImpl.java:131)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.sendEvent(EventAdminImpl.java:73)
+	at org.eclipse.equinox.internal.event.EventComponent.sendEvent(EventComponent.java:44)
+	at org.eclipse.e4.ui.services.internal.events.EventBroker.send(EventBroker.java:55)
+	at org.eclipse.e4.ui.internal.workbench.UIEventPublisher.notifyChanged(UIEventPublisher.java:60)
+	at org.eclipse.emf.common.notify.impl.BasicNotifierImpl.eNotify(BasicNotifierImpl.java:424)
+	at org.eclipse.e4.ui.model.application.ui.impl.UIElementImpl.setVisible(UIElementImpl.java:365)
+	at org.eclipse.e4.ui.workbench.renderers.swt.ToolBarContributionRecord.updateVisibility(ToolBarContributionRecord.java:79)
+	at org.eclipse.e4.ui.workbench.renderers.swt.ToolBarManagerRenderer$2.changed(ToolBarManagerRenderer.java:515)
+	at org.eclipse.e4.core.internal.contexts.TrackableComputationExt.update(TrackableComputationExt.java:105)
+	at org.eclipse.e4.core.internal.contexts.EclipseContext.runAndTrack(EclipseContext.java:340)
+	at org.eclipse.e4.ui.workbench.renderers.swt.ToolBarManagerRenderer.processAddition(ToolBarManagerRenderer.java:507)
+	at org.eclipse.e4.ui.workbench.renderers.swt.ToolBarManagerRenderer.generateContributions(ToolBarManagerRenderer.java:483)
+	at org.eclipse.e4.ui.workbench.renderers.swt.ToolBarManagerRenderer.processContribution(ToolBarManagerRenderer.java:452)
+	at org.eclipse.e4.ui.workbench.renderers.swt.ToolBarManagerRenderer.createWidget(ToolBarManagerRenderer.java:415)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createWidget(PartRenderingEngine.java:991)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:658)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:762)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:727)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:711)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.subscribeChildrenHandler(PartRenderingEngine.java:311)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:56)
+	at org.eclipse.e4.core.di.internal.extensions.EventObjectSupplier$DIEventHandler.handleEvent(EventObjectSupplier.java:92)
+	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:206)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:201)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.dispatchEvent(EventAdminImpl.java:131)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.sendEvent(EventAdminImpl.java:73)
+	at org.eclipse.equinox.internal.event.EventComponent.sendEvent(EventComponent.java:44)
+	at org.eclipse.e4.ui.services.internal.events.EventBroker.send(EventBroker.java:55)
+	at org.eclipse.e4.ui.internal.workbench.UIEventPublisher.notifyChanged(UIEventPublisher.java:60)
+	at org.eclipse.emf.common.notify.impl.BasicNotifierImpl.eNotify(BasicNotifierImpl.java:424)
+	at org.eclipse.emf.ecore.util.EcoreEList.dispatchNotification(EcoreEList.java:248)
+	at org.eclipse.emf.common.notify.impl.NotifyingListImpl.addUnique(NotifyingListImpl.java:356)
+	at org.eclipse.emf.common.util.AbstractEList.add(AbstractEList.java:340)
+	at org.eclipse.e4.ui.internal.workbench.ContributionsAnalyzer.processAddition(ContributionsAnalyzer.java:430)
+	at org.eclipse.e4.ui.workbench.renderers.swt.TrimBarRenderer.addTrimContributions(TrimBarRenderer.java:142)
+	at org.eclipse.e4.ui.workbench.renderers.swt.TrimBarRenderer.processContents(TrimBarRenderer.java:114)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:672)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$1.run(PartRenderingEngine.java:543)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:527)
+	at org.eclipse.e4.ui.workbench.renderers.swt.WBWRenderer.processContents(WBWRenderer.java:684)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:672)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:762)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:727)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:711)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1079)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1042)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:639)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:546)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:143)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:109)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:439)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:271)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:668)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:605)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1481)
+
+!ENTRY org.eclipse.jface.text 2 0 2024-12-22 19:42:54.434
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2024-12-22 19:42:54.436
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-12-22 19:42:56.373
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\fb trader'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.oomph.setup.ui 2 0 2024-12-22 19:43:06.632
+!MESSAGE Cannot invoke "org.eclipse.oomph.p2.core.BundlePool.getLocation()" because "bundlePool" is null
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.oomph.p2.core.BundlePool.getLocation()" because "bundlePool" is null
+	at org.eclipse.oomph.setup.ui.SetupUIPlugin.performStartup(SetupUIPlugin.java:576)
+	at org.eclipse.oomph.setup.ui.SetupUIPlugin$1$1.run(SetupUIPlugin.java:268)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.epp.logging.aeri.ui 2 18 2024-12-22 19:43:59.450
+!MESSAGE Updating the index from remote failed. Version: 1.0.0.v20150617-0732
+!STACK 0
+org.apache.lucene.index.IndexNotFoundException: no segments* file found in org.apache.lucene.store.SimpleFSDirectory@C:\Users\fb trader\AppData\Local\Temp\1734878639405-0 lockFactory=org.apache.lucene.store.NativeFSLockFactory@4e501b84: files: []
+	at org.apache.lucene.index.SegmentInfos$FindSegmentsFile.run(SegmentInfos.java:712)
+	at org.apache.lucene.index.SegmentInfos$FindSegmentsFile.run(SegmentInfos.java:593)
+	at org.apache.lucene.index.SegmentInfos.read(SegmentInfos.java:359)
+	at org.apache.lucene.index.IndexWriter.addIndexes(IndexWriter.java:3132)
+	at org.eclipse.epp.internal.logging.aeri.ui.log.ProblemsDatabaseService.replaceContent(ProblemsDatabaseService.java:175)
+	at org.eclipse.epp.internal.logging.aeri.ui.log.ProblemsDatabaseUpdateJob.run(ProblemsDatabaseUpdateJob.java:71)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.mylyn.tasks.ui 2 0 2024-12-22 19:44:54.309
+!MESSAGE No search provider was registered. Tasks search is not available.
+
+!ENTRY org.eclipse.jface.text 2 0 2024-12-22 19:47:15.253
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2024-12-22 19:47:15.254
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.jst.j2ee 4 0 2024-12-22 20:25:05.357
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Exception in org.eclipse.jst.j2ee.internal.plugin.J2EEPlugin.stop() of bundle org.eclipse.jst.j2ee.
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:923)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.stopWorker0(EquinoxBundle.java:1071)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.stopWorker(EquinoxBundle.java:392)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:695)
+	at org.eclipse.osgi.container.Module.stop(Module.java:554)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:2116)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1986)
+	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:281)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:222)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:695)
+	at org.eclipse.osgi.container.Module.stop(Module.java:554)
+	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:212)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:240)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.lang.NoSuchMethodError: 'org.eclipse.core.runtime.jobs.IJobManager org.eclipse.core.runtime.Platform.getJobManager()'
+	at org.eclipse.jst.j2ee.internal.plugin.J2EEPlugin.stop(J2EEPlugin.java:548)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$3.run(BundleContextImpl.java:903)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$3.run(BundleContextImpl.java:1)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:571)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:895)
+	... 13 more
+Root exception:
+java.lang.NoSuchMethodError: 'org.eclipse.core.runtime.jobs.IJobManager org.eclipse.core.runtime.Platform.getJobManager()'
+	at org.eclipse.jst.j2ee.internal.plugin.J2EEPlugin.stop(J2EEPlugin.java:548)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$3.run(BundleContextImpl.java:903)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$3.run(BundleContextImpl.java:1)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:571)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:895)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.stopWorker0(EquinoxBundle.java:1071)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.stopWorker(EquinoxBundle.java:392)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:695)
+	at org.eclipse.osgi.container.Module.stop(Module.java:554)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:2116)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1986)
+	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:281)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:222)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:695)
+	at org.eclipse.osgi.container.Module.stop(Module.java:554)
+	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:212)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:240)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
